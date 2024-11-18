@@ -1,4 +1,5 @@
 const fs = require("fs");
+const { stringify } = require("querystring");
 const readline = require("readline-sync"); // Import readline-sync
 
 const FILE_NAME = "tasks.json";
@@ -43,7 +44,7 @@ const markAsComplete = () => {
   }
   const taskNumber = readline.questionInt("Enter task number: ");
   if (taskNumber > 0 && taskNumber <= tasks.length) {
-    tasks[taskNumber - 1].completed = true;
+    tasks[taskNumber - 1]['completed'] = true;
     saveTasks();
     console.log("Task marked as complete!");
   } else {
